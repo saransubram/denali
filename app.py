@@ -28,8 +28,9 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action")! = "employee.age":
-        
+    if req.get("result").get("action")!= "employee.age":
+    
+ 
         if req.get("result").get("action") = "employee.stats":
             result = req.get("result")
             parameters = result.get("parameters")
@@ -47,9 +48,8 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-denali"
             }
-        else:
         
-            return{}
+        else:
             result = req.get("result")
             parameters = result.get("parameters")
                 var1 = parameters.get("employees")
