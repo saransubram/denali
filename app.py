@@ -19,7 +19,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = makeWebhookResult2(req)
+    res = makeWebhookResult(req)
 
     res = json.dumps(res, indent=4)
     print(res)
@@ -37,19 +37,7 @@ def makeWebhookResult(req):
     age = {'Sophie Quinn':41, 'Diane Russell':49, 'Ruth Cornish':37, 'Ella  Payne':33, 'Julia Nash':27, 'Lisa Miller':32, 'Liam Allan':59, 'Carl Baker':30,'Ava Vance':38}
 
     speech = "The age of " + var1 + " is " + str(age[var1])
-
-    print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        #"data": {},
-        # "contextOut": [],
-        "source": "apiai-miibot"
-    }
-
-def makeWebhookResult2(req):
+    
     if req.get("result").get("action") != "employee.stats":
         return {}
     result = req.get("result")
@@ -68,7 +56,7 @@ def makeWebhookResult2(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-miibot"
+        "source": "apiai-denali"
     }
 
 if __name__ == '__main__':
