@@ -39,7 +39,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-miibot"
+        "source": "apiai-denali"
     }
 
 
