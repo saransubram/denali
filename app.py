@@ -49,6 +49,27 @@ def makeWebhookResult(req):
         "source": "apiai-miibot"
     }
 
+def makeWebhookResult2(req):
+    if req.get("result").get("action") != "employee.stats":
+        return {}
+    result = req.get("result")
+    parameters = result.get("parameters")
+    var1 = parameters.get("stats")
+    
+    var2 = {'Min':27, 'Max':59, 'Mean':38.4}
+
+    speech = "The answer for " + var1 + " is " + str(var2[var1])
+
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        # "contextOut": [],
+        "source": "apiai-miibot"
+    }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
