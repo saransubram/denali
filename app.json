@@ -1,7 +1,7 @@
 {
   "name": "Miibot sample webhook",
   "description": "Miibot employee age sample",
-  "repository": "https://github.com/saransubram/miibot",
+  "repository": "https://github.com/saransubram/denali",
   "logo": "http://xvir.github.io/img/apiai.png",
   "keywords": ["api.ai", "natural language"]
 }
