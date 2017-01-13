@@ -45,7 +45,7 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-denali"
             }
-    elif req.get("result").get("action") = "employee.stats":
+    else req.get("result").get("action") = "employee.stats":
             result = req.get("result")
             parameters = result.get("parameters")
                 var1 = parameters.get("stats")
@@ -62,9 +62,6 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-denali"
             }
-        
-        else:
-             return{}
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
