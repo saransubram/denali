@@ -28,7 +28,8 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action")= "employee.age":
+    if req.get("result").get("action")!= "employee.age":
+        return{}
             result = req.get("result")
             parameters = result.get("parameters")
                 var1 = parameters.get("employees")
@@ -45,23 +46,25 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-denali"
             }
-    else req.get("result").get("action") = "employee.stats":
-            result = req.get("result")
-            parameters = result.get("parameters")
-                var1 = parameters.get("stats")
-                var2 = {'Min':27, 'Max':59, 'Mean':38.4}
-            speech = "The answer for " + var1 + " is " + str(var2[var1])
+                                                         
+#                                                         
+#    else req.get("result").get("action") = "employee.stats":
+    #        result = req.get("result")
+   #         parameters = result.get("parameters")
+  #              var1 = parameters.get("stats")
+ #               var2 = {'Min':27, 'Max':59, 'Mean':38.4}
+#            speech = "The answer for " + var1 + " is " + str(var2[var1])
             
-            print("Response:")
-            print(speech)
+     #       print("Response:")
+      #      print(speech)
 
-            return {
-            "speech": speech,
-            "displayText": speech,
+       #     return {
+        #    "speech": speech,
+         #   "displayText": speech,
             #"data": {},
             # "contextOut": [],
-            "source": "apiai-denali"
-            }
+          #  "source": "apiai-denali"
+           # }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
