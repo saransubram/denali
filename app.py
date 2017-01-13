@@ -12,7 +12,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = makeWebhookResult(req)
+    res = makeWebhookResult2(req)
 
     res = json.dumps(res, indent=4)
     print(res)
@@ -39,7 +39,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-miibot"
+        "source": "apiai-denali"
     }
 
 def makeWebhookResult2(req):
@@ -61,7 +61,7 @@ def makeWebhookResult2(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-miibot"
+        "source": "apiai-denali"
     }
 
 if __name__ == '__main__':
