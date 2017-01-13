@@ -21,8 +21,8 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "employee.age":
-        return {}
+    if req.get("result").get("action") = "employee.age":
+       
     result = req.get("result")
     parameters = result.get("parameters")
     var1 = parameters.get("employees")
@@ -42,9 +42,8 @@ def makeWebhookResult(req):
         "source": "apiai-denali"
     }
 
-def makeWebhookResult2(req):
-    if req.get("result").get("action") != "employee.stats":
-        return {}
+elif  req.get("result").get("action") = "employee.stats":
+        
     result = req.get("result")
     parameters = result.get("parameters")
     var1 = parameters.get("stats")
@@ -63,6 +62,9 @@ def makeWebhookResult2(req):
         # "contextOut": [],
         "source": "apiai-miibot"
     }
+
+else:
+    return{}
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
