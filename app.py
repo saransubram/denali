@@ -28,8 +28,8 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action")!= "employee.stats":
-        return{}
+    if req.get("result").get("action")= "employee.stats":
+        
     result = req.get("result")
     parameters = result.get("parameters")
     var1 = parameters.get("stats")
@@ -49,6 +49,29 @@ def makeWebhookResult(req):
         "source": "apiai-denali"
     }
 
+elif req.get("result").get("action") = "employee.age":
+        
+    result = req.get("result")
+    parameters = result.get("parameters")
+    var1 = parameters.get("employees")
+    
+    age = {'Sophie Quinn':41, 'Diane Russell':49, 'Ruth Cornish':37, 'Ella  Payne':33, 'Julia Nash':27, 'Lisa Miller':32, 'Liam Allan':59, 'Carl Baker':30,'Ava Vance':38}
+
+    speech = "The age of " + var1 + " is " + str(age[var1])
+
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        # "contextOut": [],
+        "source": "apiai-miibot"
+    }
+
+else:
+    return {}
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
