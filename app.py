@@ -35,6 +35,7 @@ def makeWebhookResult(req):
     print(speech)
 
     return {
+        
         "speech": speech,
         "displayText": speech,
         #"data": {},
