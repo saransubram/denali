@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-
-import urllib
-import json
-import os
-
-from flask import Flask
 from flask import request
 from flask import make_response
 
@@ -28,43 +21,48 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action")!= "employee.age":
-        return{}
-            result = req.get("result")
-            parameters = result.get("parameters")
-                var1 = parameters.get("employees")
-                age = {'Sophie Quinn':41, 'Diane Russell':49, 'Ruth Cornish':37, 'Ella  Payne':33, 'Julia Nash':27, 'Lisa Miller':32, 'Liam Allan':59, 'Carl Baker':30,'Ava Vance':38}
-            speech = "The age of " + var1 + " is " + str(age[var1])
+    if req.get("result").get("action") != "employee.age":
+        return {}
+    result = req.get("result")
+    parameters = result.get("parameters")
+    var1 = parameters.get("employees")
     
-            print("Response:")
-            print(speech)
+    age = {'Sophie Quinn':41, 'Diane Russell':49, 'Ruth Cornish':37, 'Ella  Payne':33, 'Julia Nash':27, 'Lisa Miller':32, 'Liam Allan':59, 'Carl Baker':30,'Ava Vance':38}
 
-            return {
-            "speech": speech,
-            "displayText": speech,
-               #"data": {},
-            # "contextOut": [],
-            "source": "apiai-denali"
-            }
-                                                         
-#                                                         
-#    else req.get("result").get("action") = "employee.stats":
-    #        result = req.get("result")
-   #         parameters = result.get("parameters")
-  #              var1 = parameters.get("stats")
- #               var2 = {'Min':27, 'Max':59, 'Mean':38.4}
-#            speech = "The answer for " + var1 + " is " + str(var2[var1])
-            
-     #       print("Response:")
-      #      print(speech)
+    speech = "The age of " + var1 + " is " + str(age[var1])
 
-       #     return {
-        #    "speech": speech,
-         #   "displayText": speech,
-            #"data": {},
-            # "contextOut": [],
-          #  "source": "apiai-denali"
-           # }
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        # "contextOut": [],
+        "source": "apiai-miibot"
+    }
+
+def makeWebhookResult2(req):
+    if req.get("result").get("action") != "employee.stats":
+        return {}
+    result = req.get("result")
+    parameters = result.get("parameters")
+    var1 = parameters.get("stats")
+    
+    var2 = {'Min':27, 'Max':59, 'Mean':38.4}
+
+    speech = "The answer for " + var1 + " is " + str(var2[var1])
+
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        # "contextOut": [],
+        "source": "apiai-miibot"
+    }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
