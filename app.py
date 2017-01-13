@@ -46,7 +46,7 @@ def makeWebhookResult(req):
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-denali"
+        "source": "apiai-denalibot"
     }
 
 elif req.get("result").get("action") = "employee.age":
@@ -67,7 +67,7 @@ elif req.get("result").get("action") = "employee.age":
         "displayText": speech,
         #"data": {},
         # "contextOut": [],
-        "source": "apiai-miibot"
+        "source": "apiai-denalibot"
     }
 
 else:
